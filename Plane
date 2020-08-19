@@ -1,0 +1,131 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package airplane;
+
+/**
+ *
+ * @author steve
+ */
+public class Plane {
+static void Seats(int column,int row,char seat[][]){
+        
+        for(int i=0; i<column; i++){ 
+            
+        for(int j=0; j<row; j++){
+            
+        seat[i][j] ='*';
+    }
+    }
+    }
+    static void print(int column, int row,char seat[][]){
+        
+        for(int i = 0; i < column ; i++){
+            
+        for(int j = 0; j < row ; j++)                
+            
+                System.out.print("     "+seat[i][j]); 
+        
+                System.out.println(); 
+        }
+    }
+    
+    static void SeatChoice(int column,int row,char seat[][]){
+        
+        int TicketType = 0;
+        
+        int ColumnPick = 0;
+        
+        int RowPick = 0;
+    
+    java.util.Scanner sc = new java.util.Scanner(System.in);
+    
+            System.out.println("Enter Ticket Type:");
+            
+            System.out.println("[1] First Class");
+            
+            System.out.println("[2] Business Class");
+            
+            System.out.println("[3] Economy");
+    
+        TicketType = sc.nextInt();
+        
+            System.out.println();
+    
+        switch (TicketType) {
+            
+          case 1:
+              
+            System.out.println("Enter row[1-3]:");
+            
+                RowPick = sc.nextInt();
+                
+                if(RowPick >= 1 && RowPick <= 3){
+            System.out.println("Enter column[1-6]:");
+                        
+                ColumnPick = sc.nextInt();
+                    if(ColumnPick <= 1 && ColumnPick >= 6){
+                        System.out.println("Error:\n" + "Number input is invalid\n" + "No changes have been made");
+          break;
+                
+                 }else{
+                        if(seat[RowPick-1][ColumnPick-1] == 'X'){
+                            System.out.println("\n" + "Seat Taken. Please choose another seat number!\n");
+                        }else{
+                            seat[RowPick-1][ColumnPick-1] = 'X';
+                        }
+                    }
+                    
+                }else{
+                    System.out.println("Error:\n" + "Number input is invalid\n" + "No changes have been made");
+                break;
+                }break;
+                
+            case 2:
+                System.out.print("Enter row [4-8]: ");
+                RowPick = sc.nextInt();
+                if(RowPick >= 4 && RowPick <= 8){
+                    System.out.print("Enter column [1-6]: ");
+                    ColumnPick = sc.nextInt();
+                    if(ColumnPick <= 1 && ColumnPick >= 6){
+                        System.out.println("Error:\n" + "Number input is invalid\n" + "No changes have been made");
+                break;
+                
+                    }else{
+                        seat[RowPick-1][ColumnPick-1] = 'X';
+                    }
+                    
+                }else{
+                    System.out.println("Error:\n" + "Your answer is invalid\n" + "No changes have been made :)");
+                break;
+                }break;
+            
+      
+            case 3:
+                System.out.println("Enter row [9-13]: ");
+                RowPick = sc.nextInt();
+                if(RowPick >= 9 && RowPick <= 13){
+                    System.out.println("Enter column [1-6]: ");
+                    ColumnPick = sc.nextInt();
+                    if(ColumnPick <= 1 && ColumnPick >= 6){
+                        System.out.println("Error Invalid Input. Try Again!");
+                break;
+                
+                    }else{
+                        seat[RowPick-1][ColumnPick-1] = 'X';
+                    }
+                    
+                }else{
+                    System.out.println("Error Invalid Input. Try Again!");
+                break;
+                }break;
+            
+            default:
+                System.out.println("Error Invalid Input. Try Again!");
+            break;
+        }
+    
+    }    
+}
